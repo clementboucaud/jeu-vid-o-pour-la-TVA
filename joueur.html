@@ -2,9 +2,41 @@
 <html>
 <head>
     <title>Joueur</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Joueur</h1>
-    <p>Voici les informations sur le joueur.</p>
+<body class="page-joueur">
+    <header>
+        <span>Joueur</span>
+        <button id="musicBtn" onclick="toggleMusic()" class="music-button">audio on/audio off</button>
+    </header>
+    <p>Voici les informations sur le joueur: </p>
+    <button>Créer un joueur</button>
+    <br>
+    <p>liste des joueurs créés:</p>
+    <br><br><br><br><br><br><br>
+    <p><a href="jeuvideo.html"><button>Retour à l'accueil</button></a></p>
+    <audio id="music" loop volume="0.5">
+        <source src="mssbu.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        let isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        function toggleMusic() {
+            const audio = document.getElementById('music');
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                localStorage.setItem('musicPlaying', 'false');
+            } else {
+                audio.play();
+                isPlaying = true;
+                localStorage.setItem('musicPlaying', 'true');
+            }
+        }
+        window.addEventListener('load', function() {
+            if (isPlaying) {
+                document.getElementById('music').play();
+            }
+        });
+    </script>
 </body>
 </html>
