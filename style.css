@@ -1,0 +1,121 @@
+body {
+    color: #000000;
+    font-size: 24px;
+    line-height: 1.5;
+    font-family: Impact, sans-serif;
+    background-image: url('https://wallpaper.forfun.com/fetch/f5/f53da6851023e47461bc36c296076baa.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body.page-joueur {
+    background-image: url('https://external-preview.redd.it/super-smash-bros-ultimate-wallpaper-fanmade-4k-v0-V4hu3pH8bzExbi7djAh-mvFDyaFoQaqfHU4ar-2Gb9s.png?auto=webp&s=35fae817c44871de15c1eab6d4aec98d95db78d1');
+}
+
+h1 {
+    color: #000000;
+    font-size: 36px;
+    text-align: center;
+    font-family: Impact, sans-serif;
+}
+
+button {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 28px;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-family: Impact, sans-serif;
+    border-radius: 15px;
+    transition: transform 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+button:hover {
+    transform: scale(1.2);
+}
+
+a {
+    transition: transform 0.2s;
+    display: inline-block;
+    font-size: 36px;
+}
+
+a:hover {
+    transform: scale(1.2);
+}
+
+p {
+    color: #330000;
+    font-size: 32px;
+    text-align: center;
+    font-family: Impact, sans-serif;
+    display: block;
+    margin: 60px auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    display: block;
+    margin: 50px auto;
+}
+
+tr {
+    color: #000000;
+    font-size: 25px;
+    text-align: left;
+    font-family: Impact, sans-serif;
+    display: block;
+    margin: 0 auto;
+}
+
+td {
+    color: #000000;
+    font-size: 28px;
+    text-align: left;
+    font-family: Impact, sans-serif;
+    display: block;
+    margin: 15px auto;
+    width: 1000px;
+    padding: 15px;
+}
+
+th {
+    color: #000000;
+    font-size: 28px;
+    text-align: center;
+    font-family: Impact, sans-serif;
+    width: 500px;
+    padding: 15px;
+}
+
+header {
+    background-color: #5e9b70;
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    background-image: linear-gradient(to right, #5e9b70, #30b34c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-button {
+    position: absolute;
+    right: 20px;
+    font-size: 20px !important;
+    padding: 8px 12px !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+header span {
+    color: #000000;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
