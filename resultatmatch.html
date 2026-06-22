@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résultat du match</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Résultat du match</h1>
-    <p>Voici les résultats du match.</p>
+    <header>
+        <span>Résultat du match</span>
+        <button id="musicBtn" onclick="toggleMusic()" class="music-button">audio on/audio off</button>
+    </header>
+    <p>Voici les résultats du match:</p>
+    <table border="1">
+        <tr>
+            <th>Gagnant</th>
+            <th>Perdant</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>  
+            <td></td>
+        </tr>
+    </table>
+    <br><br><br><br><br><br><br><br>
+    <p><a href="jeuvideo.html"><button>Retour à l'accueil</button></a></p>
+    <audio id="music" loop volume="0.5">
+        <source src="mssbu.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        let isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        function toggleMusic() {
+            const audio = document.getElementById('music');
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                localStorage.setItem('musicPlaying', 'false');
+            } else {
+                audio.play();
+                isPlaying = true;
+                localStorage.setItem('musicPlaying', 'true');
+            }
+        }
+        window.addEventListener('load', function() {
+            if (isPlaying) {
+                document.getElementById('music').play();
+            }
+        });
+    </script>
 </body>
 </html>
