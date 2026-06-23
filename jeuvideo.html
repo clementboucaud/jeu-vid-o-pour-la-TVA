@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="javafiles.js"></script>
     <title>Accueil</title>
 </head>
 <body>
     <header>
         <span>Gestionnaire de tournoi de jeu vidéo TVA</span>
-        <button id="musicBtn" onclick="toggleMusic()" class="music-button">audio on/audio off</button>
+        <button id="musicBtn" onclick="toggleMusic()" class="music-button">🔊</button>
     </header>
-    <p><a href="joueur.html"><button>Joueur</button></a></p>
-    <p><a href="resultatmatch.html"><button>Résultat du match</button></a></p>
-    <p><a href="match.html"><button>Match</button></a></p>
+    <h2><a href="joueur.html"><button>Joueur</button></a></h2>
+    <h2><a href="resultatmatch.html"><button>Résultat du match</button></a></h2>
+    <h2><a href="match.html"><button>Match</button></a></h2>
     <audio id="music" loop volume="0.5">
         <source src="mssbu.mp3" type="audio/mpeg">
     </audio>
     <script>
         let isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        function updateMusicButton() {
+            const btn = document.getElementById('musicBtn');
+            btn.textContent = isPlaying ? '🔊' : '🔇';
+        }
         function toggleMusic() {
             const audio = document.getElementById('music');
             if (isPlaying) {
@@ -30,8 +35,10 @@
                 isPlaying = true;
                 localStorage.setItem('musicPlaying', 'true');
             }
+            updateMusicButton();
         }
         window.addEventListener('load', function() {
+            updateMusicButton();
             if (isPlaying) {
                 document.getElementById('music').play();
             }

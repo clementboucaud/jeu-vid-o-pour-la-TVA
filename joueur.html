@@ -3,23 +3,69 @@
 <head>
     <title>Joueur</title>
     <link rel="stylesheet" href="style.css">
+    <script src="javafiles.js"></script>
 </head>
 <body class="page-joueur">
     <header>
         <span>Joueur</span>
-        <button id="musicBtn" onclick="toggleMusic()" class="music-button">audio on/audio off</button>
+        <button id="musicBtn" onclick="toggleMusic()" class="music-button">🔊</button>
     </header>
-    <p>Voici les informations sur le joueur: </p>
-    <button>Créer un joueur</button>
-    <br>
-    <p>liste des joueurs créés:</p>
-    <br><br><br><br><br><br><br>
-    <p><a href="jeuvideo.html"><button>Retour à l'accueil</button></a></p>
+    <p>choisissez un joueur !</p>
+    <p>liste des joueurs :</p>
+    <div class="select-container">
+        <div class="select-group">
+            <input type="text" id="player1-title" value="Joueur 1" class="player-title-input">
+            <select id="player1-select" onchange="updatePlayer1Name(); displayCharacterStats('player1-select', 'player1-stats')">
+                <option value="Mario">Mario</option>
+                <option value="DonkeyKong">Donkey Kong</option>
+                <option value="Samus">Samus</option>
+                <option value="Link">Link</option>
+                <option value="Kirby">Kirby</option>
+                <option value="Fox">Fox</option>
+                <option value="Pikachu">Pikachu</option>
+                <option value="Yoshi">Yoshi</option>
+                <option value="Sonic">Sonic</option>
+                <option value="CaptainFalcon">Captain Falcon</option>
+                <option value="Snake">Snake</option>
+                <option  value="Pac-man">Pac-man</option>
+                <option value="Mega Man">Mega Man</option>
+                <option value="Ness">Ness</option>
+                <option value="Cloud">Cloud</option>
+            </select>
+            <div id="player1-stats"></div>
+        </div>
+        <div class="select-group">
+            <input type="text" id="player2-title" value="Joueur 2" class="player-title-input">
+            <select id="player2-select" onchange="updatePlayer2Name(); displayCharacterStats('player2-select', 'player2-stats')">
+                <option value="Mario">Mario</option>
+                <option value="DonkeyKong">Donkey Kong</option>
+                <option value="Samus">Samus</option>
+                <option value="Link">Link</option>
+                <option value="Kirby">Kirby</option>
+                <option value="Fox">Fox</option>
+                <option value="Pikachu">Pikachu</option>
+                <option value="Yoshi">Yoshi</option>
+                <option value="Sonic">Sonic</option>
+                <option value="CaptainFalcon">Captain Falcon</option>
+                <option value="Snake">Snake</option>
+                <option value="Mega Man">Mega Man</option>
+                <option value="Ness">Ness</option>
+                <option value="Cloud">Cloud</option>
+            </select>
+            <div id="player2-stats"></div>
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <h2><a href="jeuvideo.html"><button>Retour à l'accueil</button></a></h2>
     <audio id="music" loop volume="0.5">
         <source src="mssbu.mp3" type="audio/mpeg">
     </audio>
     <script>
         let isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        function updateMusicButton() {
+            const btn = document.getElementById('musicBtn');
+            btn.textContent = isPlaying ? '🔊' : '🔇';
+        }
         function toggleMusic() {
             const audio = document.getElementById('music');
             if (isPlaying) {
@@ -31,8 +77,24 @@
                 isPlaying = true;
                 localStorage.setItem('musicPlaying', 'true');
             }
+            updateMusicButton();
+        }
+        function updatePlayer1Name() {
+            const select = document.getElementById('player1-select');
+            const input = document.getElementById('player1-title');
+            input.value = select.value;
+        }
+        function updatePlayer2Name() {
+            const select = document.getElementById('player2-select');
+            const input = document.getElementById('player2-title');
+            input.value = select.value;
         }
         window.addEventListener('load', function() {
+            updateMusicButton();
+            updatePlayer1Name();
+            updatePlayer2Name();
+            displayCharacterStats('player1-select', 'player1-stats');
+            displayCharacterStats('player2-select', 'player2-stats');
             if (isPlaying) {
                 document.getElementById('music').play();
             }

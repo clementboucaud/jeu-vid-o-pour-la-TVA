@@ -6,20 +6,24 @@
     <title>Match</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-match">
     <header>
         <span>Match</span>
-        <button id="musicBtn" onclick="toggleMusic()" class="music-button">audio on/audio off</button>
+        <button id="musicBtn" onclick="toggleMusic()" class="music-button">🔊</button>
     </header>
     <p>Voici les informations sur le match:</p>
     <button>Créer un match</button>
-    <br><br><br><br><br><br><br><br><br>
-    <p><a href="jeuvideo.html"><button>Retour à l'accueil</button></a></p>
+    <br><br><br><br><br><br><br>
+    <h2><a href="jeuvideo.html"><button>Retour à l'accueil</button></a></h2>
     <audio id="music" loop volume="0.5">
         <source src="mssbu.mp3" type="audio/mpeg">
     </audio>
     <script>
         let isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        function updateMusicButton() {
+            const btn = document.getElementById('musicBtn');
+            btn.textContent = isPlaying ? '🔊' : '🔇';
+        }
         function toggleMusic() {
             const audio = document.getElementById('music');
             if (isPlaying) {
@@ -31,8 +35,10 @@
                 isPlaying = true;
                 localStorage.setItem('musicPlaying', 'true');
             }
+            updateMusicButton();
         }
         window.addEventListener('load', function() {
+            updateMusicButton();
             if (isPlaying) {
                 document.getElementById('music').play();
             }

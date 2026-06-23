@@ -12,6 +12,10 @@ body.page-joueur {
     background-image: url('https://external-preview.redd.it/super-smash-bros-ultimate-wallpaper-fanmade-4k-v0-V4hu3pH8bzExbi7djAh-mvFDyaFoQaqfHU4ar-2Gb9s.png?auto=webp&s=35fae817c44871de15c1eab6d4aec98d95db78d1');
 }
 
+body.page-match {
+    background-image: url('https://static.wikia.nocookie.net/smashbros/images/8/88/Destination_Finale_Ultimate_blog_1.jpg/revision/latest?cb=20180907144131&path-prefix=fr');
+}
+
 h1 {
     color: #000000;
     font-size: 36px;
@@ -31,6 +35,7 @@ button {
     transition: transform 0.2s;
     display: block;
     margin: 0 auto;
+    background-image: linear-gradient(to right, #000000, #4d4d4d);
 }
 button:hover {
     transform: scale(1.2);
@@ -47,19 +52,23 @@ a:hover {
 }
 
 p {
-    color: #330000;
+    color: #FFFFFF;
     font-size: 32px;
     text-align: center;
     font-family: Impact, sans-serif;
     display: block;
     margin: 60px auto;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px 20px;
+    border-radius: 8px;
 }
 
 table {
     border-collapse: collapse;
     width: 80%;
-    display: block;
     margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 tr {
@@ -67,8 +76,7 @@ tr {
     font-size: 25px;
     text-align: left;
     font-family: Impact, sans-serif;
-    display: block;
-    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
 }
 
 td {
@@ -76,19 +84,16 @@ td {
     font-size: 28px;
     text-align: left;
     font-family: Impact, sans-serif;
-    display: block;
-    margin: 15px auto;
-    width: 1000px;
     padding: 15px;
 }
 
 th {
-    color: #000000;
+    color: #FFFFFF;
     font-size: 28px;
     text-align: center;
     font-family: Impact, sans-serif;
-    width: 500px;
     padding: 15px;
+    background-color: #5e9b70;
 }
 
 header {
@@ -102,12 +107,44 @@ header {
     align-items: center;
 }
 
-.music-button {
-    position: absolute;
-    right: 20px;
-    font-size: 20px !important;
-    padding: 8px 12px !important;
-    background-color: rgba(0, 0, 0, 0.6) !important;
+.select-container {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    margin: 20px auto;
+}
+
+.select-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.select-group h3 {
+    color: #FFFFFF;
+    font-size: 40px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    margin: 0;
+    font-family: Impact, sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 30px;
+    border-radius: 8px;
+}
+
+select {
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    font-family: Impact, sans-serif;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+span {
+    font-family: Impact, sans-serif;
+    color: #000000;
 }
 
 header span {
@@ -115,7 +152,90 @@ header span {
     font-size: 32px;
     font-weight: bold;
     letter-spacing: 2px;
-    display: block;
-    margin-bottom: 10px;
+    display: inline-block;
+    margin-bottom: 0;
 }
+
+h2 {
+    color: #FFFFFF;
+    font-size: 32px;
+    text-align: center;
+    font-family: Impact, sans-serif;
+    display: block;
+    margin: 60px auto;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+
+.player-title-input {
+    font-size: 40px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    margin: 0;
+    font-family: Impact, sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: #FFFFFF;
+    border: 2px solid #FFD700;
+    text-align: center;
+    width: 250px;
+    background-image: linear-gradient(to right, #000000, #4d4d4d) !important;
+}
+
+/* Styles pour les stats des personnages */
+.stats-display {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    min-width: 300px;
+    border: 2px solid #FFD700;
+}
+
+.stats-display h4 {
+    color: #FFD700;
+    font-size: 24px;
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-family: Impact, sans-serif;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.stat-label {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: Impact, sans-serif;
+    min-width: 100px;
+}
+
+.stat-bar {
+    flex: 1;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #FFD700;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    transition: width 0.3s ease;
+}
+
+.stat-value {
+    color: #FFD700;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: right;
+}
+
 
